@@ -9,4 +9,4 @@ There are some directions to solve this problem:
 
 `compare4.ipynb` compares the four existing methods for solving this problem: DM+kNN, ROSELAND, Nystrom method, HKC.
 
-`addpoint3.ipynb` seeks to process the data sequentially. There are three possible ways to solve the case: using Nystrom method, modifying SVD, and combining the DMs we obtained from dach small dataset by taking advantage of the concept of SCMDS (split-and-combine MDS).
+`addpoint3.ipynb` seeks to process the data sequentially. There are three possible ways to solve the case: using Nystrom method, modifying SVD, and combining the DMs we obtained from each small dataset by taking advantage of the concept of SCMDS (split-and-combine MDS).
