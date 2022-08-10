@@ -1,0 +1,39 @@
+DATA SET 1
+
+	data set size:      2000 
+	landmark set size:  50
+
+	DM execution time:        0.5923 s
+	roseland execution time:  0.0244 s
+	Nystrom execution time:   0.0266 s
+	HKC execution time:       0.0146 s
+
+
+DATA SET 2
+
+	data set size:      2000 
+	landmark set size:  50
+
+	DM execution time:        0.5590 s
+	roseland execution time:  0.0264 s
+	Nystrom execution time:   0.0223 s
+	HKC execution time:       0.0144 s
+
+
+DATA SET 3
+
+	data set size:      2000 
+	landmark set size:  50
+
+	DM execution time:        0.9939 s
+	roseland execution time:  0.0355 s
+	Nystrom execution time:   0.0260 s
+	HKC execution time:       0.0191 s
+
+
+	landmark set size:  100
+
+	DM execution time:        1.0114 s
+	roseland execution time:  0.0571 s
+	Nystrom execution time:   0.0737 s
+	HKC execution time:       0.0427 s

@@ -1,0 +1,31 @@
+Pleth
+
+	size of X (data set),     n = 121814
+	size of Y (landmark set), m = 194
+	size of XX (small data set for computing DM), nn = 1200
+
+	DM of XX execution time:       794 ms
+	roseland of X execution time:  6.88 s
+	Nystrom of X execution time:   5.65 s
+
+
+ECG
+
+	size of X (data set),     n = 113460
+	size of Y (landmark set), m = 188
+	size of XX (small data set for computing DM), nn = 1200
+
+	DM of XX execution time:       1.08 s
+	roseland of X execution time:  13 s
+	Nystrom of X execution time:   12.1 s
+
+
+P1
+
+	size of X (data set),     n = 120725
+	size of Y (landmark set), m = 194
+	size of XX (small data set for computing DM), nn = 1200
+
+	DM of XX execution time:       587 ms
+	roseland of X execution time:  5.46 s
+	Nystrom of X execution time:   5.6 s

@@ -1,14 +1,64 @@
 <h1 align="center">Diffusion Maps 2</h1>
-<div align="center"><i>Solving the computational complexity problem of Diffusion Maps (DM).</i></div>
+<div align="center"><i>Investigate the affects of sampling density and scale of data sets to the diffusion maps.</i></div>
 <br>
 
-There are some directions to solve this problem:
-1. Construct a random walk in a way such that we only need to calculate the SVD of a low rank matrix.
-2. Approximate the transition matrix or its eigenvectors and eigenvalues.
-3. Process the large data sequentially, construct DM for each small dataset and reveal structures for the large data.
+We first state the two main problems of diffusion maps, then investigate methods that solve these problems. 
 
-`compare4.ipynb` compares the four existing methods for solving this problem: DM+kNN, ROSELAND, Nystrom method, HKC.
+## Problem discription
 
-`addpoint3.ipynb` seeks to process the data sequentially. There are three possible ways to solve the case: using Nystrom method, modifying SVD, and combining the DMs we obtained from each small dataset by taking advantage of the concept of SCMDS (split-and-combine MDS).
+1. The spectrum of DM is effected by the sampling density of data points. When the data has nonuniform sampling distribution, DM may not reveal the structures of its underlying manifold. 
 
-`test_property.ipynb` tests the properties of DM, Nystrom, and Roseland in order to find out possible ways to obtain solutions.
+2. DM computes the SVD of a symmetric full-rank matrix, which is computational exspensive. Due to this action, we cannot apply DM to reveal structures of massive data sets. 
+
+
+## Algorithm
+This section introduces the algorithms in this repository and display results of some of them. For more details and results of all these algorithms, see folder `Result` and the `.ipynb` files. 
+
+- `test_property.ipynb` studies some properties of diffusion maps using simple data sets. 
+
+- `sampling_density.ipynb` compares the embedding results of diffusion maps (DM) / anisotropic diffusion maps (aDM) / diffusion maps with local scaling (DMls) using designed data sets. These methods (except DM) aim to solve problem 1. See the following demonstration. 
+
+    <p align='center'><img src="Result/sampling_density/data3-data.png" height="180" /></p>
+    <p align='center'>The data set is a three dimensional knot of size 200, which has underlying manifold being a circle. (For clearer view, It is displayed in 2-dimensional space.) It has nonuniform sampling density. </p>
+    <p align='center'><img src="Result/sampling_density/data3-emb.png" height="180" /></p>
+    <p align='center'>
+    Left: DM is effected by the sampling density, which generates corners at where is denser. <br> 
+    Middle: aDM reveals the underlying manifold, also, it preserves the true neighbors of a data points. <br>
+    Right: DMls reveals the underlying manifold, but it do not preserve the true neighbors of a data points. (DMls harmonizes the distances of pairwise points in clusters of different local statistics.) </p>
+
+- `scalability.ipynb` and `scalability_muIDM.ipynb` compare roseland / DM with Nystrom extension / HKC / mu-isometric diffusion maps using designed data sets. These methods aim to solve problem 2. See the following demonstration. 
+
+    <p align='center'><img src="Result/scalability/data3-data2.png" height="180" /></p>
+    <p align='center'>The data set is a three dimensional knot of size 2000, and the landamrk set constitutes of 100 points uniformly chosen from the data set. </p>
+    <p align='center'><img src="Result/scalability/data3-emb2.png" height="180" /></p>
+    <p align='center'> Results of roseland and DM with Nystrom extension approximate the DM embedding, whereas result of HKC does not. 
+    
+    | | DM | roseland | DM with Nystrom extension | HKC |
+    | :---------------- | :----------------:| :----------------: | :----------------: | :----------------: | 
+    |Execution time |1.0114 s|0.0571 s|0.0737 s|0.0427 s|
+    </p>
+
+
+- `scalability_mnist.ipynb` and `scalability_medical_signal.ipynb` compare roseland / DM with Nystrom extension using real-world data sets (the MNIST data set and the medical signals data sets). See the following demonstrations. 
+
+    <p align='center'><img src="Result/scalability_mnist/data.png" height="300" /></p>
+    <p align='center'>The data set consists of all digits of 1,7, and 9 in the original MNIST data set. It is of size 18956. The landmark points is uniformly chosen from the data points, and the size of landmark set is 84 (=18956^{0.45}).</p>
+    <p align='center'>
+        <img src="Result/scalability_mnist/embdm.png" height="180" />
+        <img src="Result/scalability_mnist/embr.png" height="180" />
+        <img src="Result/scalability_mnist/embn.png" height="180" />
+    </p>
+    <p align='center'>
+    Left: DM of a small data set of size 1200. (We choose 400 images of each digit to form this data set.) <br> 
+    Middle: roseland of the data set of size 18956. <br>
+    right: DM with Nystrom extension of the data set of size 18956. 
+
+    | | roseland | DM with Nystrom extension | 
+    | :---------------- | :----------------:| :----------------: | 
+    |Execution time |10.7 s|8.89 s|
+    </p>
+
+
+
+- `scalability_addpoint.ipynb` aim to solve problem 2 by gradually construct the embedding of a large data set. We test this possible solution for problem 2 by: computing DM on a small data set, then add data points and extend the embedding using Nystrom extension / modify SVD / split and combine methods. 
+

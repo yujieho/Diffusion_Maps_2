@@ -1,0 +1,8 @@
+INFO
+	number of original data points =  1800
+	number of added data points =  200
+
+Execution time
+	Add points using Nystrom method:           61.3 ms
+	Add points using modify SVD:               290 ms
+	Add points using split and combine method: 452 ms

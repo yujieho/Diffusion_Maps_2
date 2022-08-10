@@ -1,0 +1,15 @@
+INFO
+
+	size of X (data set),     n = 18956
+	size of Y (landmark set), m = 84
+	size of XX (small data set for computing DM), nn = 1200
+
+	number of digit 1 in X:  6742
+	number of digit 7 in X:  6265
+	number of digit 9 in X:  5949
+
+
+Execution time
+	DM of XX:                       1.61 s
+	roseland of X:                  10.7 s
+	DM with Nystrom extension of X: 8.89 s
