@@ -15,11 +15,13 @@ We first state the two main problems of diffusion maps, then investigate methods
 This section introduces the algorithms in this repository and display results of some of them. For more details and results of all these algorithms, see folder `Result` and the `.ipynb` files. 
 
 <br>
+
 :round_pushpin: `test_property.ipynb` 
 
 Studies some properties of diffusion maps using simple data sets. 
 
 <br>
+
 :round_pushpin: `sampling_density.ipynb` 
 
 Compares the embedding results of diffusion maps (DM) / anisotropic diffusion maps (aDM) / diffusion maps with local scaling (DMls) using designed data sets. These methods (except DM) aim to solve problem 1. See the following demonstration. 
@@ -34,6 +36,7 @@ Right: DMls reveals the underlying manifold, but it do not preserve the true nei
 
 
 <br>
+
 :round_pushpin: `scalability.ipynb` and `scalability_muIDM.ipynb` 
 
 Compare roseland / DM with Nystrom extension / HKC / mu-isometric diffusion maps using designed data sets. These methods aim to solve problem 2. See the following demonstration. 
@@ -51,6 +54,7 @@ Compare roseland / DM with Nystrom extension / HKC / mu-isometric diffusion maps
 
 
 <br>
+
 :round_pushpin: `scalability_mnist.ipynb` and `scalability_medical_signal.ipynb` 
 
 Compare roseland / DM with Nystrom extension using real-world data sets (the MNIST data set and the medical signals data sets). See the following demonstrations. 
@@ -75,6 +79,7 @@ right: DM with Nystrom extension of the data set of size 18956. </p>
 
 
 <br>
+
 :round_pushpin: `scalability_addpoint.ipynb` 
 
 Aims to solve problem 2 by gradually construct the embedding of a large data set. We test this possible solution for problem 2 by: computing DM on a small data set, then add data points and extend the embedding using Nystrom extension / modify SVD / split and combine methods. 
