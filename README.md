@@ -1,12 +1,12 @@
 <h1 align="center">Diffusion Maps 2</h1>
-<div align="center"><i>Investigate the affects of sampling density and scale of data sets to the diffusion maps.</i></div>
+<div align="center"><i>Investigate the effects of sampling density and scale of data sets to the diffusion maps.</i></div>
 <br>
 
 We first state the two main problems of diffusion maps, then investigate methods that solve these problems. 
 
 ## Problem discription
 
-1. The spectrum of DM is effected by the sampling density of data points. When the data has nonuniform sampling distribution, DM may not reveal the structures of its underlying manifold. 
+1. The spectrum of DM is affected by the sampling density of data points. When the data has nonuniform sampling distribution, DM may not reveal the structures of its underlying manifold. 
 
 2. DM computes the SVD of a symmetric full-rank matrix, which is computational exspensive. Due to this action, we cannot apply DM to reveal structures of massive data sets. 
 
@@ -30,7 +30,7 @@ Compares the embedding results of diffusion maps (DM) [1] / anisotropic diffusio
 <p align='center'>The data set is a three dimensional knot of size 200, which has underlying manifold being a circle. (For clearer view, It is displayed in 2-dimensional space.) It has nonuniform sampling density. </p>
 <p align='center'><img src="Result/sampling_density/data3-emb.png" height="180" /></p>
 <p align='center'>
-Left: DM is effected by the sampling density, which generates corners at where is denser. <br> 
+Left: DM is affected by the sampling density, which generates corners at where is denser. <br> 
 Middle: aDM reveals the underlying manifold, also, it preserves the true neighbors of a data points. <br>
 Right: DMls reveals the underlying manifold, but it do not preserve the true neighbors of a data points. (DMls harmonizes the distances of pairwise points in clusters of different local statistics.) </p>
 
